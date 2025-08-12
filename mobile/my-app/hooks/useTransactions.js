@@ -25,7 +25,7 @@ export const useTransactions = (userId) => {
 
 	const fetchSummary = useCallback(async()=>{
 		try{
-			const reponse = await fetch(`${API_URL}/transactions/summary/${userId}`)
+			const response = await fetch(`${API_URL}/transactions/summary/${userId}`)
 			const data = await response.json()
 			setSummary(data)
 		}catch(error){
@@ -46,7 +46,7 @@ export const useTransactions = (userId) => {
 		}
 	},[fetchTransactions, fetchSummary, userId])
 
-	const deleteTransaction = async(id)=>{
+	const deleteTransactions = async(id)=>{
 		try{
 			const response = await fetch(`${API_URL}/transactions/${id}`, {method: 'DELETE'})
 
@@ -67,6 +67,6 @@ export const useTransactions = (userId) => {
 		summary,
 		isLoading,
 		loadData,
-		deleteTransaction
+		deleteTransactions
 	}
 }
